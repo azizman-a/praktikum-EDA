@@ -1,0 +1,152 @@
+# Praktikum 02 - Exploratory Data Analysis (EDA)
+
+## 1. Deskripsi Praktikum
+
+Praktikum 02 membahas proses memuat, menelusuri, dan memeriksa dataset menggunakan Python, Pandas, dan Google Colab.
+
+Pada praktikum ini digunakan dataset **Kunjungan Perpustakaan 2025** untuk memahami struktur data, tipe data, nilai kosong, data duplikat, serta jumlah nilai unik pada setiap kolom.
+
+## 2. Tujuan Praktikum
+
+- Memahami cara menghubungkan Google Colab dengan Google Drive.
+- Memuat dataset CSV menggunakan Pandas.
+- Menampilkan data menggunakan `head()` dan `tail()`.
+- Memeriksa ukuran dataset menggunakan `shape`.
+- Memeriksa struktur dan tipe data menggunakan `info()` dan `dtypes`.
+- Menampilkan statistik deskriptif menggunakan `describe()`.
+- Memeriksa data kosong dan duplikat.
+- Menghitung jumlah nilai unik menggunakan `nunique()`.
+
+## 3. Tools dan Library
+
+- Google Colab
+- Google Drive
+- Python
+- Pandas
+
+Library yang digunakan:
+
+```python
+import pandas as pd
+```
+
+## 4. Dataset
+
+Dataset yang digunakan adalah:
+
+`kunjungan_perpustakaan_2025 (3).csv`
+
+Dataset berisi informasi kunjungan perpustakaan dengan 9 kolom:
+
+1. `id_kunjungan`
+2. `tanggal`
+3. `nim_hash`
+4. `prodi`
+5. `angkatan`
+6. `durasi_menit`
+7. `jumlah_pinjam`
+8. `jenis_ruang`
+9. `kepuasan`
+
+## 5. Tahapan Praktikum
+
+### A. Menghubungkan Google Drive
+
+Google Drive dihubungkan dengan Google Colab agar dataset dapat dibaca secara langsung.
+
+```python
+from google.colab import drive
+drive.mount('/content/drive')
+```
+
+### B. Memuat Dataset
+
+Dataset dibaca menggunakan fungsi `read_csv()` dari Pandas.
+
+```python
+df = pd.read_csv(file_path)
+```
+
+### C. Menampilkan Data
+
+Menggunakan `head()` untuk melihat lima data pertama dan `tail()` untuk melihat lima data terakhir.
+
+```python
+df.head()
+df.tail()
+```
+
+### D. Memeriksa Ukuran Dataset
+
+Menggunakan `shape` untuk mengetahui jumlah baris dan kolom.
+
+```python
+df.shape
+```
+
+### E. Memeriksa Informasi Dataset
+
+Menggunakan `info()` dan `dtypes` untuk mengetahui tipe data setiap kolom.
+
+```python
+df.info()
+df.dtypes
+```
+
+### F. Statistik Deskriptif
+
+Menggunakan `describe()` untuk menampilkan informasi statistik seperti rata-rata, nilai minimum, maksimum, dan standar deviasi.
+
+```python
+df.describe()
+```
+
+### G. Memeriksa Data Kosong dan Duplikat
+
+```python
+df.isna().sum()
+df.duplicated().sum()
+```
+
+### H. Menghitung Nilai Unik
+
+Menggunakan `nunique()` untuk mengetahui jumlah nilai berbeda pada setiap kolom.
+
+```python
+df.nunique()
+```
+
+## 6. Hasil Praktikum
+
+Berdasarkan hasil pemeriksaan menggunakan Google Colab, diperoleh:
+
+| Pemeriksaan | Hasil |
+|---|---:|
+| Jumlah baris | 900 |
+| Jumlah kolom | 9 |
+| Nilai kosong pada kolom kepuasan | 45 |
+| Data duplikat | 0 |
+| Jumlah program studi | 3 |
+| Jumlah angkatan | 4 |
+| Jumlah jenis ruang | 3 |
+
+Dari hasil `info()`, diketahui bahwa dataset memiliki 5 kolom bertipe object, 3 kolom bertipe int64, dan 1 kolom bertipe float64.
+
+## 7. Kesimpulan
+
+Berdasarkan praktikum yang telah dilakukan, dataset kunjungan perpustakaan tahun 2025 berhasil dimuat dan diperiksa menggunakan Google Colab dan Pandas.
+
+Dataset memiliki 900 baris dan 9 kolom. Hasil pemeriksaan menunjukkan terdapat 45 nilai kosong pada kolom kepuasan dan tidak ditemukan data duplikat.
+
+Melalui praktikum ini, dapat dipahami cara membaca dataset, memeriksa struktur data, mengetahui tipe data, serta melakukan pemeriksaan awal sebelum melanjutkan proses analisis data.
+
+## 8. File Praktikum
+
+- `praktikum_02.ipynb` - Notebook pengerjaan praktikum.
+- `kunjungan_perpustakaan_2025 (3).csv` - Dataset yang digunakan.
+
+---
+
+**Mata Kuliah:** Exploratory Data Analysis (EDA)  
+**Praktikum:** Pertemuan 2  
+**Tools:** Google Colab dan Google Drive
